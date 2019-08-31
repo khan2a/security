@@ -1,0 +1,1 @@
+for ip in `last -f /var/log/btmp | awk '{print $3}' | grep -v Thu | grep -v 165.225.76.100 | sort | uniq`; do echo "iptables -A INPUT -s "$ip" -j DROP"; done > /etc/iptables.conf
